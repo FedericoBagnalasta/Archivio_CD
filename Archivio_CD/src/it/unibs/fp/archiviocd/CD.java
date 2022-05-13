@@ -1,7 +1,7 @@
 package it.unibs.fp.archiviocd;
 
-import it.unibs.fp.mylib.*;
 import java.util.ArrayList;
+import it.unibs.fp.mylib.*;
 
 public class CD {
 	
@@ -15,8 +15,8 @@ public class CD {
 		this.autore = autore;
 	}
 	
-	public void aggiungiBrano() {
-		String titoloBrano = InputDati.leggiStringa("Inserisci il nome del brano");
+	public void aggiungiBrano () {
+		String titoloBrano = InputDati.leggiStringa("Inserisci il titolo del brano");
 		System.out.println("Inserisci la durata del brano nel formato minuti : secondi");
 		int minBrano = InputDati.leggiIntero("Inserisci i minuti");
 		int secBrano = InputDati.leggiIntero("Inserisci i secondi");
@@ -56,7 +56,7 @@ public class CD {
 		return stringaCD;
 	}
 
-	public String getTitolo() {
+	public String getTitolo () {
 		return titolo;
 	}
 }
