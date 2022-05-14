@@ -13,13 +13,20 @@ public class ArchivioCD {
 		
 	}
 	
+	/**
+	 * Metodo che permette all'utente di inserire un nuovo CD all'interno dell'archivio
+	 */
 	public void inserisciCD() {
 		String titoloCD = InputDati.leggiStringa("Inserisci il titolo del CD");
 		String autoreCD = InputDati.leggiStringa("Inserisci il nome dell'autore del CD");
 		CD nuovoCD = new CD(titoloCD, autoreCD);
 		elencoCD.add(nuovoCD);
 	}
-
+	
+	/**
+	 * Metodo che permette all'utente di cercare un particolare CD all'interno dell'archivio
+	 * @return
+	 */
 	public CD cercaCD() {
 		String nome = InputDati.leggiStringa("Seleziona un CD indicandone il nome");
 		for(int i = 0; i < elencoCD.size() - 1; i++) {
@@ -31,6 +38,9 @@ public class ArchivioCD {
 		return null;
 	}
 	
+	/**
+	 * Metodo che permette all'utente di scegliere un CD e di visualizzarne il contenuto
+	 */
 	public void visualizzaCD() {   //da finire
 		stampaCD();
 		String nome = InputDati.leggiStringa("Seleziona un CD indicandone il nome");
@@ -38,6 +48,9 @@ public class ArchivioCD {
 		
 	}
 	
+	/**
+	 * Metodo che permette all'utente di scegliere un CD e di eliminarlo dall'archivio
+	 */
 	public void eliminaCD() {   //forse si può scrivere meglio usando cercaCD()
 		stampaCD();
 		String CDDaEliminare = InputDati.leggiStringa("Seleziona un CD da eliminare");
@@ -49,12 +62,18 @@ public class ArchivioCD {
 		}		
 	}
 	
+	/**
+	 * Metodo che estrae in maniera casuale un CD dall'archivio
+	 */
 	public void estraiCDCasuale() {
 		int num = NumeriCasuali.estraiIntero(0, elencoCD.size() - 1);
 		CD CDCasuale = elencoCD.get(num);
 		System.out.println(CDCasuale.toString());		
 	}
 	
+	/**
+	 * Metodo che stampa a video l'elenco dei CD presenti all'interno dell'archivio
+	 */
 	public void stampaCD() {
 		for (int i = 0; i < elencoCD.size() - 1; i++) {
 			System.out.println(elencoCD.get(i).toString());
@@ -62,7 +81,7 @@ public class ArchivioCD {
 	}
 	
 	public String toString() {
-		String stringaArchivioCD = "L'archivio CD contiene i seguenti brani:\n";
+		String stringaArchivioCD = "L'archivio CD contiene i seguenti CD:\n";
 		for (int i = 0; i < elencoCD.size() - 1; i++) {
 			stringaArchivioCD = stringaArchivioCD + elencoCD.get(i).toString();
 		}

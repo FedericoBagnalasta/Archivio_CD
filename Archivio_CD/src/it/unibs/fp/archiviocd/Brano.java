@@ -21,5 +21,4 @@ public class Brano {
 	public String getTitolo() {
 		return titolo;
 	}
-	
 }
