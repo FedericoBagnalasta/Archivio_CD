@@ -15,6 +15,9 @@ public class CD {
 		this.autore = autore;
 	}
 	
+	/**
+	 * Metodo che permette all'utente di inserire un nuovo brano all'interno del CD
+	 */
 	public void aggiungiBrano () {
 		String titoloBrano = InputDati.leggiStringa("Inserisci il titolo del brano");
 		System.out.println("Inserisci la durata del brano nel formato minuti : secondi");
@@ -24,12 +27,19 @@ public class CD {
 		elencoBrani.add(nuovoBrano);
 	}
 	
+	/**
+	 * Metodo che estrae in maniera casuale un brano dal CD
+	 */
 	public void estraiBranoCasuale () {
 		int num = NumeriCasuali.estraiIntero(0, elencoBrani.size() - 1);
 		Brano branoCasuale = elencoBrani.get(num);
 		System.out.println(branoCasuale.toString());
 	}
 	
+	/**
+	 * Metodo che permette all'utente di selezionare un particolare brano all'interno del CD
+	 * @return
+	 */
 	public Brano selezionaBrano () {
 		stampaBrani();
 		String nome = InputDati.leggiStringa("Seleziona un brano indicandone il nome");
@@ -52,6 +62,9 @@ public class CD {
 		}
 	}
 
+	/**
+	 * Metodo che stampa a video l'elenco dei brani presenti all'interno del CD
+	 */
 	public void stampaBrani () {
 		for (int i = 0; i < elencoBrani.size(); i++) {
 			System.out.println(elencoBrani.get(i).toString());

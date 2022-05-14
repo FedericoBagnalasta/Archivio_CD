@@ -13,6 +13,9 @@ public class ArchivioCD {
 		
 	}
 	
+	/**
+	 * Metodo che permette all'utente di inserire un nuovo CD all'interno dell'archivio
+	 */
 	public void inserisciCD() {
 		String titoloCD = InputDati.leggiStringa("Inserisci il titolo del CD");
 		String autoreCD = InputDati.leggiStringa("Inserisci il nome dell'autore del CD");
@@ -32,6 +35,9 @@ public class ArchivioCD {
 	}
 	
 	
+	/**
+	 * Metodo che permette all'utente di scegliere un CD e di visualizzarne il contenuto
+	 */
 	public void visualizzaCD() {   //da finire
 		stampaCD();
 		String nome = InputDati.leggiStringa("Seleziona un CD indicandone il nome");
@@ -39,6 +45,9 @@ public class ArchivioCD {
 		
 	}
 	
+	/**
+	 * Metodo che permette all'utente di scegliere un CD e di eliminarlo dall'archivio
+	 */
 	public void eliminaCD() {   //forse si può scrivere meglio usando cercaCD()
 		stampaCD();
 		String CDDaEliminare = InputDati.leggiStringa("Seleziona un CD da eliminare");
@@ -50,12 +59,18 @@ public class ArchivioCD {
 		}		
 	}
 	
+	/**
+	 * Metodo che estrae in maniera casuale un CD dall'archivio
+	 */
 	public void estraiCDCasuale() {
 		int num = NumeriCasuali.estraiIntero(0, elencoCD.size() - 1);
 		CD CDCasuale = elencoCD.get(num);
 		System.out.println(CDCasuale.toString());		
 	}
 	
+	/**
+	 * Metodo che stampa a video l'elenco dei CD presenti all'interno dell'archivio
+	 */
 	public void stampaCD() {
 		System.out.println(toString());
 		/*for (int i = 0; i < elencoCD.size(); i++) {
