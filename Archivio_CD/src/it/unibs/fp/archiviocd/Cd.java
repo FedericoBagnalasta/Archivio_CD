@@ -3,14 +3,14 @@ package it.unibs.fp.archiviocd;
 import java.util.ArrayList;
 import it.unibs.fp.mylib.*;
 
-public class CD {
+public class Cd {
 	
 	private String titolo;
 	private String autore;
 	
 	ArrayList <Brano> elencoBrani = new ArrayList <Brano>();
 	
-	public CD (String titolo, String autore) {
+	public Cd (String titolo, String autore) {
 		this.titolo = titolo;
 		this.autore = autore;
 	}

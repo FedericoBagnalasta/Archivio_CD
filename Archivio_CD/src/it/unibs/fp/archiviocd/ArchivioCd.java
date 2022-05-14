@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import it.unibs.fp.mylib.InputDati;
 import it.unibs.fp.mylib.NumeriCasuali;
 
-public class ArchivioCD {
+public class ArchivioCd {
 	
-	ArrayList <CD> elencoCD = new ArrayList <CD>();
+	ArrayList <Cd> elencoCD = new ArrayList <Cd>();
 	
-	public ArchivioCD() {
+	public ArchivioCd() {
 		
 	}
 	
@@ -19,11 +19,11 @@ public class ArchivioCD {
 	public void inserisciCD() {
 		String titoloCD = InputDati.leggiStringa("Inserisci il titolo del CD");
 		String autoreCD = InputDati.leggiStringa("Inserisci il nome dell'autore del CD");
-		CD nuovoCD = new CD(titoloCD, autoreCD);
+		Cd nuovoCD = new Cd(titoloCD, autoreCD);
 		elencoCD.add(nuovoCD);
 	}
 
-	public CD cercaCD() {  //Stampare nomi CD?
+	public Cd cercaCD() {  //Stampare nomi CD?
 		String nome = InputDati.leggiStringa("Seleziona un CD indicandone il nome");
 		for(int i = 0; i < elencoCD.size(); i++) {
 			if(nome == elencoCD.get(i).getTitolo()) {
@@ -64,7 +64,7 @@ public class ArchivioCD {
 	 */
 	public void estraiCDCasuale() {
 		int num = NumeriCasuali.estraiIntero(0, elencoCD.size() - 1);
-		CD CDCasuale = elencoCD.get(num);
+		Cd CDCasuale = elencoCD.get(num);
 		System.out.println(CDCasuale.toString());		
 	}
 	

@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		boolean continua = true;
-		ArchivioCD archivio = new ArchivioCD();
+		ArchivioCd archivio = new ArchivioCd();
 		 
 		String[] voci = {"Inserisci CD", "Elimina CD", "Aggiungi Brano"};
 		MyMenu menu = new MyMenu ("Benvenuto nel archivio CD", voci);
