@@ -25,7 +25,7 @@ public class Main {
 			 * Case 2: Visualizza archivio CD
 			 */
 			case 2:
-				archivio.cercaCD();
+				//archivio.();
 				break;
 				
 			/**

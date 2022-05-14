@@ -22,16 +22,20 @@ public class ArchivioCd {
 		Cd nuovoCD = new Cd(titoloCD, autoreCD);
 		elencoCD.add(nuovoCD);
 	}
-
-	public Cd cercaCD() {  //Stampare nomi CD?
-		String nome = InputDati.leggiStringa("Seleziona un CD indicandone il nome");
+	
+	/**
+	 * Metodo che stampa i nomi e i brani dei cd dell'archivio
+	 * @return
+	 */
+	public boolean contiene(String nomeCD) {  //Stampare nomi CD?
 		for(int i = 0; i < elencoCD.size(); i++) {
-			if(nome == elencoCD.get(i).getTitolo()) {
-				return elencoCD.get(i);
+			if(nomeCD == elencoCD.get(i).getTitolo()) {
+				System.out.println("IL tuo CD e' presente nell'archivio");
+				return true;
 			}	
 		}
 		System.out.println("Il CD cercato non compare nella lista");
-		return null;
+		return false;
 	}
 	
 	

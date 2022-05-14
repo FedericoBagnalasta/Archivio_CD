@@ -16,25 +16,44 @@ public class Cd {
 	}
 	
 	/**
-	 * Metodo che permette all'utente di inserire un nuovo brano all'interno del CD
+	 * Metodo che permette all'utente di creare e inserire un nuovo brano all'interno del CD
 	 */
-	public void aggiungiBrano () {
+	public void nuovoBrano () {
 		String titoloBrano = InputDati.leggiStringa("Inserisci il titolo del brano");
 		System.out.println("Inserisci la durata del brano nel formato minuti : secondi");
 		int minBrano = InputDati.leggiIntero("Inserisci i minuti");
 		int secBrano = InputDati.leggiIntero("Inserisci i secondi");
 		Brano nuovoBrano = new Brano (titoloBrano, minBrano, secBrano);
-		elencoBrani.add(nuovoBrano);
+		aggiungiBrano (nuovoBrano);
+	}
+	
+	/**
+	 * Metodo che permette di aggiungere un brano 
+	 */
+	public void aggiungiBrano (Brano brano) {
+		elencoBrani.add(brano);
 	}
 	
 	/**
 	 * Metodo che estrae in maniera casuale un brano dal CD
 	 */
-	public void estraiBranoCasuale () {
+	public Brano branoCasuale () {
 		int num = NumeriCasuali.estraiIntero(0, elencoBrani.size() - 1);
 		Brano branoCasuale = elencoBrani.get(num);
-		System.out.println(branoCasuale.toString());
+		return branoCasuale;
 	}
+	
+	/**
+	 * Metodo che dopo aver ottenuto il titolo di un brano ne verifica la presenza all'interna dei CD
+	 */
+	public boolean haTitolo (String nomeBrano) {
+		for (int i = 0; i < elencoBrani.size(); i++) {
+			if (nomeBrano == elencoBrani.get(i).getTitolo()) {
+				return true;
+			}
+		}
+		return false;
+	}	
 	
 	/**
 	 * Metodo che permette all'utente di selezionare un particolare brano all'interno del CD
