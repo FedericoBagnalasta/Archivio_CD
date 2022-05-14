@@ -33,7 +33,7 @@ public class CD {
 	public Brano selezionaBrano () {
 		stampaBrani();
 		String nome = InputDati.leggiStringa("Seleziona un brano indicandone il nome");
-		for (int i = 0; i < elencoBrani.size() - 1; i++) {
+		for (int i = 0; i < elencoBrani.size(); i++) {
 			if (nome == elencoBrani.get(i).getTitolo()) {
 				return elencoBrani.get(i);
 			}	
@@ -41,16 +41,32 @@ public class CD {
 		System.out.println("Il brano cercato non compare nella lista");
 		return null;
 	}
+	
+	public void eliminaBrano () {
+		System.out.println(toString());
+		String nomeBrano = InputDati.leggiStringa("Inserisci il nome del brano che desideri eliminare");
+		for (int i = 0; i < elencoBrani.size(); i++) {
+			if(nomeBrano == elencoBrani.get(i).getTitolo()) {
+				elencoBrani.remove(i);
+			}
+		}
+	}
 
 	public void stampaBrani () {
-		for (int i = 0; i < elencoBrani.size() - 1; i++) {
+		for (int i = 0; i < elencoBrani.size(); i++) {
 			System.out.println(elencoBrani.get(i).toString());
 		}
 	}
 	
-	public String toString () {
-		String stringaCD = String.format("Il CD %s contiene i seguenti brani:\n", getTitolo());
+	/*public void stampaNomiCD () {
 		for (int i = 0; i < elencoBrani.size() - 1; i++) {
+			System.out.println(elencoBrani.get(i).getTitolo());
+		}
+	}
+	*/
+	public String toString () {
+		String stringaCD = String.format("%s\nIl CD contiene i seguenti brani:\n", getTitolo());
+		for (int i = 0; i < elencoBrani.size(); i++) {
 			stringaCD = stringaCD + elencoBrani.get(i).toString();
 		}
 		return stringaCD;

@@ -20,9 +20,9 @@ public class ArchivioCD {
 		elencoCD.add(nuovoCD);
 	}
 
-	public CD cercaCD() {
+	public CD cercaCD() {  //Stampare nomi CD?
 		String nome = InputDati.leggiStringa("Seleziona un CD indicandone il nome");
-		for(int i = 0; i < elencoCD.size() - 1; i++) {
+		for(int i = 0; i < elencoCD.size(); i++) {
 			if(nome == elencoCD.get(i).getTitolo()) {
 				return elencoCD.get(i);
 			}	
@@ -30,6 +30,7 @@ public class ArchivioCD {
 		System.out.println("Il CD cercato non compare nella lista");
 		return null;
 	}
+	
 	
 	public void visualizzaCD() {   //da finire
 		stampaCD();
@@ -41,7 +42,7 @@ public class ArchivioCD {
 	public void eliminaCD() {   //forse si può scrivere meglio usando cercaCD()
 		stampaCD();
 		String CDDaEliminare = InputDati.leggiStringa("Seleziona un CD da eliminare");
-		for(int i = 0; i < elencoCD.size() - 1; i++) {
+		for(int i = 0; i < elencoCD.size(); i++) {
 			if(CDDaEliminare == elencoCD.get(i).getTitolo()) {
 				elencoCD.remove(i);
 			}
@@ -56,14 +57,15 @@ public class ArchivioCD {
 	}
 	
 	public void stampaCD() {
-		for (int i = 0; i < elencoCD.size() - 1; i++) {
+		System.out.println(toString());
+		/*for (int i = 0; i < elencoCD.size(); i++) {
 			System.out.println(elencoCD.get(i).toString());
-		}
+		}*/
 	}
 	
 	public String toString() {
-		String stringaArchivioCD = "L'archivio CD contiene i seguenti brani:\n";
-		for (int i = 0; i < elencoCD.size() - 1; i++) {
+		String stringaArchivioCD = "L'archivio contiene i seguenti CD:\n";
+		for (int i = 0; i < elencoCD.size(); i++) {
 			stringaArchivioCD = stringaArchivioCD + elencoCD.get(i).toString();
 		}
 		return stringaArchivioCD;
