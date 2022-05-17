@@ -8,31 +8,52 @@ public class Main {
 		boolean continua = true;
 		ArchivioCd archivio = new ArchivioCd();
 		 
-		String[] voci = {"Inserisci CD", "Elimina CD", "Aggiungi Brano"};
+		String[] voci = {"Inserisci CD", "Visualizza intero archivio", "Visualizza Cd dell'archivio", "Elimina CD", 
+				"Estrai brano casuale", "Aggiungi Brano"};
 		MyMenu menu = new MyMenu ("Benvenuto nel archivio CD", voci);
 		
 		while (continua) {
 			switch (menu.scegli()) {
 			
 			/**
-			 *Case 1: Inserisce CD
+			 *Case 1: Inserisce Cd
 			 */
 			case 1: 
-				archivio.inserisciCD();
+				archivio.aggiungiCd(archivio.creaCd());
 				break;
 				
 			/**
-			 * Case 2: Visualizza archivio CD
+			 * Case 2: Visualizza l'intero archivio	
 			 */
 			case 2:
-				//archivio.();
+				System.out.println(archivio.toString());
 				break;
 				
 			/**
-			 * Case 3: Elimina CD	
+			 * Case 3: Visualizza Cd selezionato
 			 */
 			case 3:
-				archivio.stampaCD();
+				archivio.visualizzaCd(false);
+				break;
+				
+			/**
+			 * Case 3: Elimina Cd	
+			 */
+			case 4:
+				archivio.stampaCd();
+				String CdDaEliminare = InputDati.leggiStringa("Seleziona un CD da eliminare");
+				archivio.eliminaCd(CdDaEliminare);
+				break;
+				
+			/**
+			 * Case 5: 	Estrae un Cd casualmente
+			 */
+			case 5:
+				archivio.estraiCDCasuale();
+				break;
+				
+			case 6: 
+				archivio.visualizzaCd(true).nuovoBrano();
 				break;
 				
 			case 0:
