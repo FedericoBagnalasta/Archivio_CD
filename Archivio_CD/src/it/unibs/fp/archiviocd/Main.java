@@ -4,12 +4,12 @@ import it.unibs.fp.mylib.*;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {     
 		boolean continua = true;
 		ArchivioCd archivio = new ArchivioCd();
 		 
 		String[] voci = {"Inserisci CD", "Visualizza intero archivio", "Visualizza Cd dell'archivio", "Elimina CD", 
-				"Estrai brano casuale", "Aggiungi Brano"};
+				"Estrai brano casuale", "Aggiungi Brano"}; // seleziona Brano a caso e brano specifico
 		MyMenu menu = new MyMenu ("Benvenuto nel archivio CD", voci);
 		
 		while (continua) {
