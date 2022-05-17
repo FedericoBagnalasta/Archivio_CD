@@ -16,7 +16,7 @@ public class ArchivioCd {
 	/**
 	 * Metodo che permette all'utente di inserire un nuovo CD all'interno dell'archivio
 	 */
-	public void inserisciCD() {
+	public void aggiungiCd() {
 		String titoloCD = InputDati.leggiStringa("Inserisci il titolo del CD");
 		String autoreCD = InputDati.leggiStringa("Inserisci il nome dell'autore del CD");
 		Cd nuovoCD = new Cd(titoloCD, autoreCD);
@@ -52,7 +52,7 @@ public class ArchivioCd {
 	/**
 	 * Metodo che permette all'utente di scegliere un CD e di eliminarlo dall'archivio
 	 */
-	public void eliminaCD() {   //forse si può scrivere meglio usando cercaCD()
+	public void eliminaCd() {   //forse si può scrivere meglio usando cercaCD()
 		stampaCD();
 		String CDDaEliminare = InputDati.leggiStringa("Seleziona un CD da eliminare");
 		for(int i = 0; i < elencoCD.size(); i++) {

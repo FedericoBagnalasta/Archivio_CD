@@ -18,7 +18,7 @@ public class Main {
 			 *Case 1: Inserisce CD
 			 */
 			case 1: 
-				archivio.inserisciCD();
+				archivio.aggiungiCd();
 				break;
 				
 			/**

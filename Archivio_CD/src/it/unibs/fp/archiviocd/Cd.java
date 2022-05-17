@@ -90,14 +90,8 @@ public class Cd {
 		}
 	}
 	
-	/*public void stampaNomiCD () {
-		for (int i = 0; i < elencoBrani.size() - 1; i++) {
-			System.out.println(elencoBrani.get(i).getTitolo());
-		}
-	}
-	*/
 	public String toString () {
-		String stringaCD = String.format("%s\nIl CD contiene i seguenti brani:\n", getTitolo());
+		String stringaCD = String.format("%s di %s\nIl CD contiene i seguenti brani:\n", getTitolo(), getAutore());
 		for (int i = 0; i < elencoBrani.size(); i++) {
 			stringaCD = stringaCD + elencoBrani.get(i).toString();
 		}
@@ -107,4 +101,10 @@ public class Cd {
 	public String getTitolo () {
 		return titolo;
 	}
+
+	public String getAutore() {
+		return autore;
+	}
+	
+	
 }
