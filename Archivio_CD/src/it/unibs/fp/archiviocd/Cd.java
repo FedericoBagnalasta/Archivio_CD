@@ -19,7 +19,14 @@ public class Cd {
 	 * Metodo che permette all'utente di creare e inserire un nuovo brano all'interno del CD
 	 */
 	public void nuovoBrano () {
-		String titoloBrano = InputDati.leggiStringa("Inserisci il titolo del brano");
+		boolean continua = false;
+		String titoloBrano;
+		do {
+			titoloBrano = InputDati.leggiStringa("Inserisci il titolo del brano");
+			for (int i = 0; i < elencoBrani.size(); i++) {
+				if (elencoBrani.get(i).getTitolo() == titoloBrano) continua = true;
+			}
+		}while (continua);
 		System.out.println("Inserisci la durata del brano nel formato minuti : secondi");
 		int minBrano = InputDati.leggiIntero("Inserisci i minuti");
 		int secBrano = InputDati.leggiIntero("Inserisci i secondi");
@@ -62,15 +69,18 @@ public class Cd {
 	public Brano selezionaBrano () {
 		stampaBrani();
 		String nome = InputDati.leggiStringa("Seleziona un brano indicandone il nome");
-		for (int i = 0; i < elencoBrani.size(); i++) {
+		for (int i = 0; i < elencoBrani.size(); i++) {	
 			if (nome == elencoBrani.get(i).getTitolo()) {
 				return elencoBrani.get(i);
 			}	
 		}
-		System.out.println("Il brano cercato non compare nella lista");
+		System.out.println("Il brano che stai cercando non e' presente all'interno del CD");
 		return null;
 	}
 	
+	/**
+	 * Metodo per eliminare un brano dal Cd
+	 */
 	public void eliminaBrano () {
 		System.out.println(toString());
 		String nomeBrano = InputDati.leggiStringa("Inserisci il nome del brano che desideri eliminare");
@@ -79,21 +89,26 @@ public class Cd {
 				elencoBrani.remove(i);
 			}
 		}
+		System.out.println("Il brano che stai cercando non e' presente all'interno del CD");
 	}
 
 	/**
-	 * Metodo che stampa a video l'elenco dei brani presenti all'interno del CD
+	 * Metodo che stampa a video l'elenco dei brani presenti all'interno del Cd
 	 */
 	public void stampaBrani () {
 		for (int i = 0; i < elencoBrani.size(); i++) {
 			System.out.println(elencoBrani.get(i).toString());
 		}
 	}
-	
+
+	/**
+	 * Metodo che mostra le informazioni relative ad un Cd
+	 */
+
 	public String toString () {
 		String stringaCD = String.format("%s di %s\nIl CD contiene i seguenti brani:\n", getTitolo(), getAutore());
 		for (int i = 0; i < elencoBrani.size(); i++) {
-			stringaCD = stringaCD + elencoBrani.get(i).toString();
+			stringaCD = stringaCD + elencoBrani.get(i).toString() + "\n";
 		}
 		return stringaCD;
 	}
@@ -105,6 +120,4 @@ public class Cd {
 	public String getAutore() {
 		return autore;
 	}
-	
-	
 }

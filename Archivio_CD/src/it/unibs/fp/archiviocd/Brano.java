@@ -14,7 +14,7 @@ public class Brano {
 	
 	public String toString() {
 		String stringaCanzone = titolo;
-		stringaCanzone = stringaCanzone + (String.format("\tDurata %d:%d\n", minDurata, secDurata));
+		stringaCanzone = stringaCanzone + (String.format(" [%02d:%02d] ", minDurata, secDurata));
 		return stringaCanzone;		
 	}
 
