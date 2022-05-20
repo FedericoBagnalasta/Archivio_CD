@@ -45,7 +45,7 @@ public class Cd {
 	 * Metodo che estrae in maniera casuale un brano dal Cd
 	 */
 	public Brano branoCasuale () {
-		int num = NumeriCasuali.estraiIntero(0, elencoBrani.size() - 1);
+		int num = NumeriCasuali.estraiIntero(0, elencoBrani.size());
 		Brano branoCasuale = elencoBrani.get(num);
 		return branoCasuale;
 	}

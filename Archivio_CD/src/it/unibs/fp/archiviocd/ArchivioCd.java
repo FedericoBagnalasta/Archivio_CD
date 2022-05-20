@@ -111,12 +111,22 @@ public class ArchivioCd {
 	}
 	
 	/**
-	 * Metodo che estrae in maniera casuale un Cd dall'archivio
+	 * Metodo che estrae in maniera casuale un Cd dall'archivio e restituisce una stringa
 	 */
 	public void estraiCdCasuale() {
-		int num = NumeriCasuali.estraiIntero(0, elencoCd.size() - 1);
-		Cd CDCasuale = elencoCd.get(num);
-		System.out.println(CDCasuale.toString());		
+		int num = NumeriCasuali.estraiIntero(0, elencoCd.size());
+		Cd CdCasuale = elencoCd.get(num);
+		System.out.println(CdCasuale.toString());		
+	}
+	
+	/**
+	 * Metodo che estrae in maniera casuale un Cd dall'archivio e restituisce un oggetto di tipo Cd
+	 * @return
+	 */
+	public Cd selezionaCdCasuale() {
+		int num = NumeriCasuali.estraiIntero(0, elencoCd.size());
+		Cd CdCasuale = elencoCd.get(num);
+		return CdCasuale;
 	}
 	
 	/**

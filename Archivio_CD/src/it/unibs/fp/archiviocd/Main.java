@@ -10,7 +10,7 @@ public class Main {
 		 
 
 		String[] voci = {"Inserisci Cd", "Visualizza intero archivio", "Visualizza Cd dell'archivio", "Elimina Cd", 
-				"Estrai brano casuale", "Aggiungi brano"};
+				"Estrai un Cd casuale", "Aggiungi brano", "Estrai un brano casuale"};
 		MyMenu menu = new MyMenu ("Benvenuto nell'archivio Cd", voci);
 
 		while (continua) {
@@ -54,6 +54,7 @@ public class Main {
 			case 5:
 				archivio.estraiCdCasuale();
 				break;
+				
 			/**
 			 * Case 6: Aggiunge un brano al Cd selezionato
 			 */
@@ -63,6 +64,15 @@ public class Main {
 					nomeCd.nuovoBrano();		
 				}
 				break;
+				
+			/**
+			 * Case 7: Estrae un brano casualmente
+			 */
+			case 7:
+				Brano branoCasuale = archivio.selezionaCdCasuale().branoCasuale();
+				System.out.println(branoCasuale.toString());
+				break;
+				
 			/**
 			 * Case 0: Esce dal programma
 			 */
