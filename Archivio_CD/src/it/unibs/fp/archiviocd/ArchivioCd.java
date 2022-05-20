@@ -1,9 +1,7 @@
 package it.unibs.fp.archiviocd;
 
 import java.util.ArrayList;
-
-import it.unibs.fp.mylib.InputDati;
-import it.unibs.fp.mylib.NumeriCasuali;
+import it.unibs.fp.mylib.*;
 
 public class ArchivioCd {
 	

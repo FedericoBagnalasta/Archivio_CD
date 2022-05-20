@@ -4,14 +4,15 @@ import it.unibs.fp.mylib.*;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {     
 		boolean continua = true;
 		ArchivioCd archivio = new ArchivioCd();
 		 
+
 		String[] voci = {"Inserisci CD", "Visualizza intero archivio", "Visualizza CD dell'archivio", "Elimina CD", 
 				"Estrai brano casuale", "Aggiungi brano"};
 		MyMenu menu = new MyMenu ("Benvenuto nell'archivio CD", voci);
-		
+
 		while (continua) {
 			switch (menu.scegli()) {
 			
