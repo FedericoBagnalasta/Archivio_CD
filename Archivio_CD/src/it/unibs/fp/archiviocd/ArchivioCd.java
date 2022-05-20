@@ -71,7 +71,7 @@ public class ArchivioCd {
 			if(CdDaEliminare == elencoCd.get(i).getTitolo()) {
 				elencoCd.remove(i);
 			}
-			else System.out.println("Il CD che desideri eliminare non e' presente nell'archivio");   //selezionato -> cercato (?)
+			else System.out.println("Il CD che desideri eliminare non e' presente nell'archivio");  
 		}		
 	}
 	
