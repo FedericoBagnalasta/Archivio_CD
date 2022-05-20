@@ -9,9 +9,9 @@ public class Main {
 		ArchivioCd archivio = new ArchivioCd();
 		 
 
-		String[] voci = {"Inserisci CD", "Visualizza intero archivio", "Visualizza CD dell'archivio", "Elimina CD", 
+		String[] voci = {"Inserisci Cd", "Visualizza intero archivio", "Visualizza Cd dell'archivio", "Elimina Cd", 
 				"Estrai brano casuale", "Aggiungi brano"};
-		MyMenu menu = new MyMenu ("Benvenuto nell'archivio CD", voci);
+		MyMenu menu = new MyMenu ("Benvenuto nell'archivio Cd", voci);
 
 		while (continua) {
 			switch (menu.scegli()) {
@@ -20,8 +20,6 @@ public class Main {
 			 *Case 1: Inserisce Cd
 			 */
 			case 1: 
-
-				archivio.aggiungiCd();
 
 				archivio.aggiungiCd(archivio.creaCd());
 
@@ -38,7 +36,7 @@ public class Main {
 			 * Case 3: Visualizza Cd selezionato
 			 */
 			case 3:
-				archivio.visualizzaCd(false);
+				archivio.visualizzaCd();
 				break;
 				
 			/**
@@ -46,7 +44,7 @@ public class Main {
 			 */
 			case 4:
 				archivio.stampaCd();
-				String CdDaEliminare = InputDati.leggiStringa("Seleziona un CD da eliminare");
+				String CdDaEliminare = InputDati.leggiStringa("Seleziona un Cd da eliminare");
 				archivio.eliminaCd(CdDaEliminare);
 				break;
 				
@@ -60,7 +58,10 @@ public class Main {
 			 * Case 6: Aggiunge un brano al Cd selezionato
 			 */
 			case 6: 
-				archivio.visualizzaCd(true).nuovoBrano();
+				Cd nomeCd = archivio.selezionaCd();
+				if(nomeCd != null) {
+					nomeCd.nuovoBrano();		
+				}
 				break;
 			/**
 			 * Case 0: Esce dal programma
@@ -70,24 +71,11 @@ public class Main {
 				break;
 			
 			}
-		}
-		
-		
-		
-		/*Brano b = new Brano("sda", 45, 56);
-		System.out.println(b.toString());
-		
-		CD cd = new CD ("hbu", "djs");
-		cd.aggiungiBrano();
-		cd.aggiungiBrano();
-		cd.estraiBranoCasuale();
-		*/
+		}		
 	}
-
-	
-	/*L'inserimento CD non deve essere permesso se il nome usato e' gia' stato inserito
+	/*L'inserimento Cd non deve essere permesso se il nome usato e' gia' stato inserito
 	 * 
-	 * estrazione CD da TUTTO l'archivio
+	 * estrazione Cd da TUTTO l'archivio
 	 * 
 	 */
 }

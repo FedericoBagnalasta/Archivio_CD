@@ -16,7 +16,7 @@ public class Cd {
 	}
 	
 	/**
-	 * Metodo che permette all'utente di creare e inserire un nuovo brano all'interno del CD
+	 * Metodo che permette all'utente di creare e inserire un nuovo brano all'interno del Cd
 	 */
 	public void nuovoBrano () {
 		boolean continua = false;
@@ -42,7 +42,7 @@ public class Cd {
 	}
 	
 	/**
-	 * Metodo che estrae in maniera casuale un brano dal CD
+	 * Metodo che estrae in maniera casuale un brano dal Cd
 	 */
 	public Brano branoCasuale () {
 		int num = NumeriCasuali.estraiIntero(0, elencoBrani.size() - 1);
@@ -51,19 +51,14 @@ public class Cd {
 	}
 	
 	/**
-	 * Metodo che dopo aver ottenuto il titolo di un brano ne verifica la presenza all'interna dei CD
+	 * Metodo che controlla la correttezza del titolo del Cd
 	 */
-	public boolean haTitolo (String nomeBrano) {
-		for (int i = 0; i < elencoBrani.size(); i++) {
-			if (nomeBrano == elencoBrani.get(i).getTitolo()) {
-				return true;
-			}
-		}
-		return false;
+	public boolean haTitolo (String titoloCd) {	
+		return (titolo == titoloCd);
 	}	
 	
 	/**
-	 * Metodo che permette all'utente di selezionare un particolare brano all'interno del CD
+	 * Metodo che permette all'utente di selezionare un particolare brano all'interno del Cd
 	 * @return
 	 */
 	public Brano selezionaBrano () {
@@ -74,7 +69,7 @@ public class Cd {
 				return elencoBrani.get(i);
 			}	
 		}
-		System.out.println("Il brano che stai cercando non e' presente all'interno del CD");
+		System.out.println("Il brano che stai cercando non e' presente all'interno del Cd");
 		return null;
 	}
 	
@@ -89,7 +84,7 @@ public class Cd {
 				elencoBrani.remove(i);
 			}
 		}
-		System.out.println("Il brano che stai cercando non e' presente all'interno del CD");
+		System.out.println("Il brano che stai cercando non e' presente all'interno del Cd");
 	}
 
 	/**
@@ -106,9 +101,9 @@ public class Cd {
 	 */
 
 	public String toString () {
-		String stringaCD = String.format("%s di %s\nIl CD contiene i seguenti brani:\n", getTitolo(), getAutore());
+		String stringaCD = String.format("Titolo: %s, Autore: %s, Lista dei brani: ", getTitolo(), getAutore());
 		for (int i = 0; i < elencoBrani.size(); i++) {
-			stringaCD = stringaCD + elencoBrani.get(i).toString() + "\n";
+			stringaCD = stringaCD + elencoBrani.get(i).toString();
 		}
 		return stringaCD;
 	}

@@ -15,19 +15,19 @@ public class ArchivioCd {
 	 * Metodo per creare un nuovo Cd
 	 */
 	public Cd creaCd () {
-		String titoloCd = InputDati.leggiStringa("Inserisci il titolo del CD");
-		String autoreCd = InputDati.leggiStringa("Inserisci il nome dell'autore del CD");
+		String titoloCd = InputDati.leggiStringa("Inserisci il titolo del Cd");
+		String autoreCd = InputDati.leggiStringa("Inserisci il nome dell'autore del Cd");
 		Cd nuovoCd = new Cd(titoloCd, autoreCd);
 		return nuovoCd;
 	}
 	
 	/**
-	 * Metodo che permette all'utente di inserire un nuovo CD all'interno dell'archivio
+	 * Metodo che permette all'utente di inserire un nuovo Cd all'interno dell'archivio
 	 */
 
 	public void aggiungiCd() {
-		String titoloCd = InputDati.leggiStringa("Inserisci il titolo del CD");
-		String autoreCd = InputDati.leggiStringa("Inserisci il nome dell'autore del CD");
+		String titoloCd = InputDati.leggiStringa("Inserisci il titolo del Cd");
+		String autoreCd = InputDati.leggiStringa("Inserisci il nome dell'autore del Cd");
 		Cd nuovoCd = new Cd(titoloCd, autoreCd);
 		elencoCd.add(nuovoCd);
 	}
@@ -38,65 +38,80 @@ public class ArchivioCd {
 	}
 	
 	/**
-	 * Metodo che stampa i nomi e i brani dei cd dell'archivio
+	 * Metodo che stampa i nomi e i brani dei Cd dell'archivio
 	 * @return
 	 */
 	public boolean contiene(String nomeCD) { 
 		stampaCd();
 		for(int i = 0; i < elencoCd.size(); i++) {
 			if(nomeCD == elencoCd.get(i).getTitolo()) {
-				System.out.println("Il tuo CD e' presente nell'archivio");
+				System.out.println("Il tuo Cd e' presente nell'archivio");
 				return true;
 			}	
 		}
-		System.out.println("Il CD che stai cercando non e' presente nell'archivio");
+		System.out.println("Il Cd che stai cercando non e' presente nell'archivio");
 		return false;
 	}
 	
 	/**
-	 * Metodo che permette all'utente di scegliere un CD e di visualizzarne il contenuto
+	 * Metodo che permette all'utente di scegliere un Cd e di visualizzarne il contenuto
 	 */
-	public Cd visualizzaCd(boolean opzione) {
+	public void visualizzaCd() {
 		stampaCd();
-		String nomeCd = InputDati.leggiStringa("Seleziona un CD indicandone il nome");
+		String nomeCd = InputDati.leggiStringa("Seleziona un Cd indicandone il nome");
 		for(int i = 0; i < elencoCd.size(); i++) {
-			if(nomeCd == elencoCd.get(i).getTitolo() && opzione == false ) {
+			if(nomeCd == elencoCd.get(i).getTitolo()) {
 				System.out.println(elencoCd.get(i).toString());
-			}
-			else if(nomeCd == elencoCd.get(i).getTitolo() && opzione == true ) {
-				return elencoCd.get(i);
-			}
-			
+				return;
+			}			
 		}
-		System.out.println("Il CD che stai cercando non e' presente nell'archivio");
-		return null;
+		System.out.println("Il Cd che stai cercando non e' presente nell'archivio");
 	}
 	
 	/**
-	 * Metodo che permette all'utente di scegliere un CD e di eliminarlo dall'archivio
+	 * Metodo che restituisce il Cd selezionato
+	 */
+	public Cd selezionaCd() {
+		stampaCd();
+		String nomeCd = InputDati.leggiStringa("Seleziona un Cd indicandone il nome");
+		for(int i = 0; i < elencoCd.size(); i++) {
+			if(nomeCd.equals(elencoCd.get(i).getTitolo())) {
+				return elencoCd.get(i);
+			}
+		}
+		System.out.println("Il Cd che stai cercando non e' presente nell'archivio");
+		return null;
+	}	
+	
+	/**
+	 * Metodo che permette all'utente di scegliere un Cd e di eliminarlo dall'archivio
 	 */
 
 	public void eliminaCd() {
 		stampaCd();
-		String CDDaEliminare = InputDati.leggiStringa("Seleziona un CD da eliminare");
+		String CDDaEliminare = InputDati.leggiStringa("Seleziona un Cd da eliminare");
 		for(int i = 0; i < elencoCd.size(); i++) {
 			if(CDDaEliminare == elencoCd.get(i).getTitolo()) {
 				elencoCd.remove(i);
 			}
 		}
 	}
-
+	
+	/**
+	 * Metodo per eliminare un Cd dall'archivio
+	 * @param CdDaEliminare
+	 */
 	public void eliminaCd(String CdDaEliminare) {
 			for(int i = 0; i < elencoCd.size(); i++) {
 			if(CdDaEliminare == elencoCd.get(i).getTitolo()) {
 				elencoCd.remove(i);
 			}
-			else System.out.println("Il CD che desideri eliminare non e' presente nell'archivio");
+			else System.out.println("Il Cd che desideri eliminare non e' presente nell'archivio");
 		}		
 	}
 	
 	/**
-	 * Metodo che estrae in maniera casuale un CD dall'archivio
+	 * Metodo che estrae in maniera casuale un Cd dall'archivio
 	 */
 	public void estraiCdCasuale() {
 		int num = NumeriCasuali.estraiIntero(0, elencoCd.size() - 1);
@@ -113,7 +128,7 @@ public class ArchivioCd {
 	}
 	
 	/**
-	 * Metodo che stampa a video l'elenco dei CD presenti all'interno dell'archivio
+	 * Metodo che stampa a video l'elenco dei Cd presenti all'interno dell'archivio
 	 */
 	public void stampaCd() {
 		for (int i = 0; i < elencoCd.size(); i++) {
@@ -125,7 +140,7 @@ public class ArchivioCd {
 	 * Metodo che mostra le informazioni relative all'intero archivio
 	 */
 	public String toString() {
-		String stringaArchivioCD = "L'archivio contiene i seguenti CD:\n";
+		String stringaArchivioCD = "L'archivio contiene i seguenti Cd:\n";
 		for (int i = 0; i < elencoCd.size(); i++) {
 			stringaArchivioCD = stringaArchivioCD + elencoCd.get(i).toString();
 		}
