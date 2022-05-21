@@ -12,6 +12,9 @@ public class Brano {
 		this.secDurata = secDurata;
 	}
 	
+	/**
+	 * Metodo che mostra le informazioni relative ad un brano
+	 */
 	public String toString() {
 		String stringaCanzone = titolo;
 		stringaCanzone = stringaCanzone + (String.format(" [%02d:%02d] ", minDurata, secDurata));

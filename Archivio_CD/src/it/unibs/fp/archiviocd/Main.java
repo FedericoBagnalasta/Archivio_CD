@@ -8,10 +8,11 @@ public class Main {
 		boolean continua = true;
 		ArchivioCd archivio = new ArchivioCd();
 		 
-		String[] voci = {"Inserisci CD", "Visualizza intero archivio", "Visualizza Cd dell'archivio", "Elimina CD", 
-				"Estrai brano casuale", "Aggiungi Brano"}; // seleziona Brano a caso e brano specifico
-		MyMenu menu = new MyMenu ("Benvenuto nel archivio CD", voci);
-		
+
+		String[] voci = {"Inserisci Cd", "Visualizza intero archivio", "Visualizza Cd dell'archivio", "Elimina Cd", 
+				"Estrai un Cd casuale", "Aggiungi brano", "Estrai un brano casuale"};
+		MyMenu menu = new MyMenu ("Benvenuto nell'archivio Cd", voci);
+
 		while (continua) {
 			switch (menu.scegli()) {
 			
@@ -19,7 +20,9 @@ public class Main {
 			 *Case 1: Inserisce Cd
 			 */
 			case 1: 
-				archivio.aggiungiCd(archivio.creaCd());
+
+				archivio.aggiungiCd();
+
 				break;
 				
 			/**
@@ -33,52 +36,62 @@ public class Main {
 			 * Case 3: Visualizza Cd selezionato
 			 */
 			case 3:
-				archivio.visualizzaCd(false);
+				archivio.visualizzaCd();
 				break;
 				
 			/**
-			 * Case 3: Elimina Cd	
+			 * Case 4: Elimina Cd	
 			 */
 			case 4:
 				archivio.stampaCd();
-				String CdDaEliminare = InputDati.leggiStringa("Seleziona un CD da eliminare");
+				String CdDaEliminare = InputDati.leggiStringa("Seleziona un Cd da eliminare");
 				archivio.eliminaCd(CdDaEliminare);
 				break;
 				
 			/**
-			 * Case 5: 	Estrae un Cd casualmente
+			 * Case 5: Estrae un Cd casualmente
 			 */
 			case 5:
-				archivio.estraiCDCasuale();
+				try {
+				archivio.estraiCdCasuale();
+				}
+				catch (IllegalArgumentException e){
+					System.out.println("Inserisci prima dei Cd!");
+				}
 				break;
 				
+			/**
+			 * Case 6: Aggiunge un brano al Cd selezionato
+			 */
 			case 6: 
-				archivio.visualizzaCd(true).nuovoBrano();
+				Cd nomeCd = archivio.selezionaCd();
+				if(nomeCd != null) {
+					nomeCd.nuovoBrano();		
+				}
 				break;
 				
+			/**
+			 * Case 7: Estrae un brano casualmente
+			 */
+			case 7:
+				try {
+				String branoCasuale = archivio.selezionaCdCasuale().branoCasuale().toString();
+				System.out.println(branoCasuale);
+				}
+				catch (IllegalArgumentException e) {
+					System.out.println("Inserisci prima dei brani!");
+				}
+				break;
+				
+			/**
+			 * Case 0: Esce dal programma
+			 */
 			case 0:
 				continua = false;
 				break;
 			
 			}
-		}
-		
-		
-		
-		/*Brano b = new Brano("sda", 45, 56);
-		System.out.println(b.toString());
-		
-		CD cd = new CD ("hbu", "djs");
-		cd.aggiungiBrano();
-		cd.aggiungiBrano();
-		cd.estraiBranoCasuale();
-		*/
+		}		
 	}
-
 	
-	/*L'inserimento CD non deve essere permesso se il nome usato e' gia stato inserito
-	 * 
-	 * estrazione CD da TUTTO l'archivio
-	 * 
-	 */
 }

@@ -45,21 +45,17 @@ public class Cd {
 	 * Metodo che estrae in maniera casuale un brano dal Cd
 	 */
 	public Brano branoCasuale () {
+		Brano branoCasuale = null;
 		int num = NumeriCasuali.estraiIntero(0, elencoBrani.size() - 1);
-		Brano branoCasuale = elencoBrani.get(num);
+		branoCasuale = elencoBrani.get(num);
 		return branoCasuale;
 	}
 	
 	/**
-	 * Metodo che dopo aver ottenuto il titolo di un brano ne verifica la presenza all'interna dei Cd
+	 * Metodo che controlla la correttezza del titolo del Cd
 	 */
-	public boolean haTitolo (String nomeBrano) {
-		for (int i = 0; i < elencoBrani.size(); i++) {
-			if (nomeBrano == elencoBrani.get(i).getTitolo()) {
-				return true;
-			}
-		}
-		return false;
+	public boolean haTitolo (String titoloCd) {	
+		return (titolo == titoloCd);
 	}	
 	
 	/**
@@ -74,7 +70,7 @@ public class Cd {
 				return elencoBrani.get(i);
 			}	
 		}
-		System.out.println("Il brano cercato non compare nella lista");
+		System.out.println("Il brano che stai cercando non e' presente all'interno del Cd");
 		return null;
 	}
 	
@@ -100,14 +96,15 @@ public class Cd {
 			System.out.println(elencoBrani.get(i).toString());
 		}
 	}
-	
+
 	/**
 	 * Metodo che mostra le informazioni relative ad un Cd
 	 */
+
 	public String toString () {
 		String stringaCD = String.format("Titolo: %s, Autore: %s, Lista dei brani: ", getTitolo(), getAutore());
 		for (int i = 0; i < elencoBrani.size(); i++) {
-			stringaCD = stringaCD + elencoBrani.get(i).toString() + "\n";
+			stringaCD = stringaCD + elencoBrani.get(i).toString();
 		}
 		return stringaCD;
 	}
