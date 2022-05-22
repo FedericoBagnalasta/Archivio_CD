@@ -7,8 +7,7 @@ public class Cd {
 	
 	private String titolo;
 	private String autore;
-	
-	ArrayList <Brano> elencoBrani = new ArrayList <Brano>();
+	private ArrayList <Brano> elencoBrani = new ArrayList <Brano>();
 	
 	public Cd (String titolo, String autore) {
 		this.titolo = titolo;

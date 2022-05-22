@@ -12,9 +12,8 @@ public class ArchivioCd {
 	}
 	
 	/**
-	 * Metodo che permette all'utente di inserire un nuovo Cd all'interno dell'archivio
+	 * Metodo che permette all'utente di creare ed inserire un nuovo Cd all'interno dell'archivio
 	 */
-
 	public void aggiungiCd() {
 		boolean continua;
 		String titoloCd = null;
@@ -33,9 +32,12 @@ public class ArchivioCd {
 		elencoCd.add(nuovoCd);
 	}
 
+	/**
+	 * Metodo per inserire un Cd nell'archivio
+	 * @param nuovoCd
+	 */
 	public void aggiungiCd(Cd nuovoCd) {
 		elencoCd.add(nuovoCd);
-
 	}
 	
 	/**
